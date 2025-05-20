@@ -33,4 +33,4 @@ interface IOrderResult {
 	total: number;
 }
 
-export { IProduct, TOrderInvoice, TOrderPayment, TOrderStep, IOrder, IOrderResult }
+export { IProduct, TOrderInvoice, TOrderPayment, TOrderStep, IOrder, IOrderResult };
