@@ -1,19 +1,26 @@
-// Товар
+// Тип связанный с товарами
 
-interface IProduct {
+export interface IProduct {
 	id: string;
-    description: string;
-    image: string;
-    title: string;
+	description: string;
+	image: string;
+	title: string;
 	category: string;
-    price: number | null;
+	price: number | null;
 }
 
-// Заказ
+// Типы для работы с заказом
 
-type TOrderPayment = 'cash' | 'card';
+export type TOrderInvoice = Omit<IOrder, 'items'> & {
+	items: string[];
+	total: number;
+};
 
-interface IOrder {
+export type TOrderPayment = 'cash' | 'card';
+
+export type TOrderStep = 'shipment' | 'contacts';
+
+export interface IOrder {
 	items: IProduct[];
 	payment: TOrderPayment;
 	address: string;
@@ -21,16 +28,7 @@ interface IOrder {
 	phone: string;
 }
 
-type TOrderStep = 'shipment' | 'contacts';
-
-type TOrderInvoice = Omit<IOrder, 'items'> & {
-	items: string[];
-	total: number;
-};
-
-interface IOrderResult {
+export interface IOrderResult {
 	id: string;
 	total: number;
 }
-
-export { IProduct, TOrderInvoice, TOrderPayment, TOrderStep, IOrder, IOrderResult };

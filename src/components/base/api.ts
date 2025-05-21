@@ -1,11 +1,11 @@
-export type ApiListResponse<Type> = {
+export type TApiListResponse<Type> = {
     total: number,
     items: Type[]
 };
 
 export type ApiPostMethods = 'POST' | 'PUT' | 'DELETE';
 
-export class Api {
+export class API {
     readonly baseUrl: string;
     protected options: RequestInit;
 
